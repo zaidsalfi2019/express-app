@@ -1,0 +1,49 @@
+<h2>Add Data in Students Table</h2>
+<div id="table">
+    <table>
+        <tr>
+            <th>Students</th>
+            <th></th>
+            <th></th>
+            <td class="addData"><button onclick="openPopup()">Add</button></th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Roll No</th>
+            <th>Action</th>
+        </tr>
+        {{#each students}}
+        <tr>
+            <td>{{this.name}}</td>
+            <td>{{this.age}}</td>
+            <td>{{this.rollNo}}</td>
+            <td class="editDelete"><button>Edit</button><button>Delete</button></td>
+        </tr>
+        {{/each}}
+    </table>
+</div>
+<div class="popup" id="popup">
+    <img src="/add.png" alt="">
+    <h3>Add Student Name and Roll No.</h3>
+    <p>Name and Roll No. Added</p>
+    <form action="/submit" method="post">
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="age">age</label><br>
+        <input type="text" id="age" name="age"><br>
+        <label for="rollNo">Roll No.</label><br>
+        <input type="text" id="rollNo" name="rollNo"><br><br>
+        <button class="popupBtn" onclick="closePopup()">Add</button>
+    </form>
+</div>
+<script>
+    let popup = document.getElementById("popup");
+
+    function openPopup() {
+        popup.classList.add("open-popup")
+    }
+    function closePopup() {
+        popup.classList.remove("open-popup")
+    }
+</script>
